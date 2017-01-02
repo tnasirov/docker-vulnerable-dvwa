@@ -1,4 +1,4 @@
-# Damn Vulnerable Web Application Docker container
+# Damn Vulnerable Web Application Docker container v1.9
 [![Docker Pulls](https://img.shields.io/docker/pulls/vulnerables/web-dvwa.svg?style=plastic)](https://hub.docker.com/r/vulnerables/web-dvwa/)
 ![License](https://img.shields.io/badge/License-GPL-blue.svg?style=plastic)
 
