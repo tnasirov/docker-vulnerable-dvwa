@@ -24,12 +24,17 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;0x0D&quot; | /var/lib/jenkins/wap-2.1/wap -a -all -s -out sca_report.txt -p /var/lib/jenkins/workspace/DVWA/dvwa</command>
+      <command>cd /var/lib/jenkins/wap-2.1/
+echo &quot;0x0D&quot; | /var/lib/jenkins/wap-2.1/wap -a -all -s -out sca_report.txt -p /var/lib/jenkins/workspace/DVWA/dvwa
+cd /var/lib/jenkins/workspace/SCA
+mkdir $(pwd)/report
+chmod 777 $(pwd)/report
+mv /var/lib/jenkins/wap-2.1/sca_report.txt $(pwd)/report/</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>sca_report.txt</artifacts>
+      <artifacts>**</artifacts>
       <allowEmptyArchive>true</allowEmptyArchive>
       <onlyIfSuccessful>false</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
@@ -38,3 +43,4 @@
     </hudson.tasks.ArtifactArchiver>
   </publishers>
   <buildWrappers/>
+</project>
